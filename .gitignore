@@ -1,4 +1,5 @@
 .idea
 codeGenerator
+doc
 exe
-target         //忽略这个target目录
+target
