@@ -1,0 +1,4 @@
+.idea
+codeGenerator
+exe
+target         //忽略这个target目录

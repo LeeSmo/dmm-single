@@ -42,7 +42,7 @@
 
 官方网址：https://github.com/zouzg/mybatis-generator-gui
 
-* 打包方式执行
+* **打包方式执行**
 
      git clone https://github.com/zouzg/mybatis-generator-gui
 
@@ -54,7 +54,7 @@
 
      java -jar mybatis-generator-gui.jar
 
-* windows系统下 exe直接运行
+* **windows系统下 exe直接运行**
 
 
      直接执行项目 /exe路径下的 mybatis-generator-gui.exe 文件
