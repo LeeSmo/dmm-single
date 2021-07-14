@@ -58,7 +58,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/jQuery/*")
                 .antMatchers("/js/*")
                 .antMatchers("/mp3/*")
-                .antMatchers("/logging.html");
+                .antMatchers("/logging.html")
+                .antMatchers("/fireworks.html");
     }
 
     @Override
