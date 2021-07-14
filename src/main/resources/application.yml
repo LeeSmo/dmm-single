@@ -1,5 +1,5 @@
 server:
-  port: 8100
+  port: 8900
   #servlet:
     #context-path: /dmm
 
@@ -65,7 +65,6 @@ spring:
       #jedis :
         #shutdown-timeout: 0
 
-
 mybatis:
   typeAliasesPackage: com.app.dmm.modules.**.entity
   mapper-locations: classpath:mapper/**/*Mapper.xml
@@ -75,6 +74,15 @@ mapper:
   #实体类所在的包
    mappers: com.app.dmm.core.mapper.MyBaseMapper
    identity: mysql
+
+logging:
+ # 正式环境
+ config: classpath:logback-spring.xml
+ # 开发环境
+ #config: classpath:logback-spring-dev.xml
+ file:
+   #path: /usr/ylitsm_log
+   path: C:\Users\windy\Desktop\keystore\log
 
 # 自定义jwt key
 #jwt:

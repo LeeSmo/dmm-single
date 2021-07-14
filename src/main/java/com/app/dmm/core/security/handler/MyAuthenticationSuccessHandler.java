@@ -3,9 +3,9 @@ package com.app.dmm.core.security.handler;
 import com.alibaba.fastjson.JSON;
 import com.app.dmm.core.ApiResult;
 import com.app.dmm.core.security.userdetails.JwtDetailsUser;
-import com.app.dmm.core.utils.JwtTokenUtils;
 
-import com.app.dmm.core.utils.MD5Util;
+import com.app.dmm.core.utils.JwtTokenUtils;
+import com.app.dmm.core.utils.MD5Utils;
 import com.app.dmm.core.utils.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -35,7 +35,7 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
         String requestCaptcha = httpServletRequest.getParameter("captcha");
         String checkKey = httpServletRequest.getParameter("checkKey");
         String lowerCaseCaptcha = requestCaptcha.toLowerCase();
-        String realKey = MD5Util.MD5Encode(lowerCaseCaptcha+checkKey, "utf-8");
+        String realKey = MD5Utils.MD5Encode(lowerCaseCaptcha+checkKey, "utf-8");
         Object checkCode = redisUtil.get(realKey);
         System.out.println("值wwqwqw》》》》》》"+checkCode.toString());
          JwtDetailsUser userDetails = (JwtDetailsUser)authentication.getPrincipal();//拿到登录用户信息

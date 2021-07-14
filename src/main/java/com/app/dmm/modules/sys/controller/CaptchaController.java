@@ -2,7 +2,7 @@ package com.app.dmm.modules.sys.controller;
 
 import cn.hutool.core.util.RandomUtil;
 import com.app.dmm.core.ApiResult;
-import com.app.dmm.core.utils.MD5Util;
+import com.app.dmm.core.utils.MD5Utils;
 import com.app.dmm.core.utils.RandImageUtil;
 import com.app.dmm.core.utils.RedisUtil;
 import com.google.code.kaptcha.Constants;
@@ -62,7 +62,7 @@ public class CaptchaController {
         try {
             String code = RandomUtil.randomString(BASE_CHECK_CODES,4);
             String lowerCaseCode = code.toLowerCase();
-            String realKey = MD5Util.MD5Encode(lowerCaseCode+key, "utf-8");
+            String realKey = MD5Utils.MD5Encode(lowerCaseCode+key, "utf-8");
             redisUtil.set(realKey, lowerCaseCode, 6000);
             String base64 = RandImageUtil.generate(code);
             return ApiResult.OK(base64);

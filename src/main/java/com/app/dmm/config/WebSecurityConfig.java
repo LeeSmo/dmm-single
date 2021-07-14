@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -48,6 +49,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
     }
 
+    //这里是放行静态资源的
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring()
+                .antMatchers("/css/*")
+                .antMatchers("/img/*")
+                .antMatchers("/jQuery/*")
+                .antMatchers("/js/*")
+                .antMatchers("/mp3/*")
+                .antMatchers("/logging.html");
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //开启登录配置
@@ -55,6 +68,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // 禁用 csrf, 由于使用的是JWT，我们这里不需要csrf
         //允许跨域访问
         http.cors();
+
         //放行swagger
         http.authorizeRequests()
                 .antMatchers("/v2/api-docs",//swagger api json
@@ -80,7 +94,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 验证码
                 .antMatchers("/captcha.jpg**").permitAll()
                 .antMatchers("/randomImage/**").permitAll()
-                .antMatchers("/webjars/**").permitAll()
+                .antMatchers("/websocket/logging").permitAll()
+                .antMatchers("/createQRcode").permitAll()
                 //除上面配置的路径外，所有的请求都需要进行认证后才能访问
                 .anyRequest().authenticated()
                 .and()
@@ -111,7 +126,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic().disable();
         //.and().httpBasic(); //开启HTTP Basic后 ，可用postman通过携带用户名+密码直接请求接口
         // 禁用缓存
-        http.headers().cacheControl();
+        //http.headers().cacheControl();
+        http.headers().frameOptions().disable();
         // 开启登录认证流程过滤器
         http.addFilterBefore(new JwtLoginAuthenticationFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class);
         // 访问控制时登录状态检查过滤器

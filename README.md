@@ -83,7 +83,14 @@
 
 ![](./src/main/resources/markdown/正常请求.jpg)
 
+### 软件授权管理
 
+* ApplicationContextHelper.java 软件安装首次自动授权安装激活码，拿到激活码之后所有访问添加验证即可
+* 激活码设计原则  LicenseUtils.java  ,采用混合加密AES RSA 加密算法
+* SpringBoot定时器+文件Md5码实现文件变动检测
+* https://blog.csdn.net/Appleyk/article/details/102880949 
+* https://github.com/kobeyk/file-changing
+##
 * 联系作者微信扫一扫
 
 

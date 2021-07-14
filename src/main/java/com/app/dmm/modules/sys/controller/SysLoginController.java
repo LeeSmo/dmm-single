@@ -8,22 +8,14 @@ import com.app.dmm.core.utils.JwtTokenUtils;
 import com.app.dmm.modules.sys.dto.request.SysLoginVo;
 import com.app.dmm.modules.user.entity.SysUser;
 import com.app.dmm.modules.user.service.SysUserService;
-import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 import io.swagger.annotations.ApiOperation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.imageio.ImageIO;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/sys/login")
