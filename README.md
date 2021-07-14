@@ -87,11 +87,22 @@
 
 * ApplicationContextHelper.java 软件安装首次自动授权安装激活码，拿到激活码之后所有访问添加验证即可
 * 激活码设计原则  LicenseUtils.java  ,采用混合加密AES RSA 加密算法
-* SpringBoot定时器+文件Md5码实现文件变动检测
-* https://blog.csdn.net/Appleyk/article/details/102880949 
-* https://github.com/kobeyk/file-changing
+* SpringBoot定时器+文件Md5码实现文件变动检测 
+* 参考文章
+  https://blog.csdn.net/Appleyk/article/details/102880949 
+  
+  https://github.com/kobeyk/file-changing
 ##
-* 联系作者微信扫一扫
+
+###  webSocket系统日志实时查看
+
+* logback-spring.xml 配置日志按日期时间保存
+* 系统启动访问地址   http://localhost:8900/logging.html  
+![](./src/main/resources/markdown/logging.jpg)
+##
+
+* 联系作者微信扫码
+
 
 
 ![](./src/main/resources/markdown/名片.png)
