@@ -59,7 +59,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/js/*")
                 .antMatchers("/mp3/*")
                 .antMatchers("/logging.html")
-                .antMatchers("/fireworks.html");
+                .antMatchers("/fireworks.html")
+                .antMatchers("/file_upload/**")
+                .antMatchers("/fileUpload.html");
     }
 
     @Override
@@ -97,6 +99,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/randomImage/**").permitAll()
                 .antMatchers("/websocket/logging").permitAll()
                 .antMatchers("/createQRcode").permitAll()
+                .antMatchers("/sys/file/*").permitAll()
                 //除上面配置的路径外，所有的请求都需要进行认证后才能访问
                 .anyRequest().authenticated()
                 .and()

@@ -58,16 +58,21 @@
 
 
      直接执行项目 /exe路径下的 mybatis-generator-gui.exe 文件
+     
+* **操作说明**
+
+![](./src/main/resources/markdown/代码生成器操作.jpg)
+##
 
 ### 业务开发说明
 
 * 在 src/main/java/com/app/dmm/modules在新增业务模块方便后期维护
-* druid连接池查看地址 http://localhost:8100/druid/sql.html
-* swagger接口文档地址 http://localhost:8100/swagger-ui.html
+* druid连接池查看地址 	http://localhost:8900/druid/sql.html
+* swagger接口文档地址 	http://localhost:8900/swagger-ui.html
 
 * 项目访问步骤
 
-**第一步、执行获取验证码 http://localhost:8100/randomImage/222222215**
+**第一步、执行获取验证码 http://localhost:8900/randomImage/222222215** (另见swagger接口文档内容)
 
 ![](./src/main/resources/markdown/验证码请求.jpg)
 
@@ -82,6 +87,7 @@
 正常请求关注点：
 
 ![](./src/main/resources/markdown/正常请求.jpg)
+## 
 
 ### 软件授权管理
 
@@ -89,6 +95,7 @@
 * 激活码设计原则  LicenseUtils.java  ,采用混合加密AES RSA 加密算法
 * SpringBoot定时器+文件Md5码实现文件变动检测 
 * 参考文章
+
   https://blog.csdn.net/Appleyk/article/details/102880949 
   
   https://github.com/kobeyk/file-changing
@@ -100,10 +107,23 @@
 * 系统启动访问地址   http://localhost:8900/logging.html  
 ![](./src/main/resources/markdown/logging.jpg)
 ##
+###  压缩包加密玩法 （ https://github.com/srikanth-lingala/zip4j ）
 
+* 用于网络资源分享，把资源生成加密压缩包分享给享用者。密钥随机生成放到 redis 缓存中
+
+* 从系统文件（sys_common_file）读取文件路径， (sys_zip)压缩文件对应密钥
+##
+
+###  **文件拖拽上传**  http://www.i7758.com/archives/1068.html
+
+*  项目访问地址: http://localhost:8900/file_upload/fileUpload.html
+
+![](./src/main/resources/markdown/文件上传.jpg)
+##
+
+
+###
 * 联系作者微信扫码
-
-
 
 ![](./src/main/resources/markdown/名片.png)
 
